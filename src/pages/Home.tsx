@@ -25,6 +25,8 @@ const Home = () => {
       <Link to="/">home</Link>
       <br />
       <Link to="player-status">player status</Link>
+      <br />
+      <Link to="player-item">player item</Link>
 
       <Outlet />
     </>

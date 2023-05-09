@@ -7,10 +7,9 @@ const PlayerStatus = () => {
   const [players, setPlayers] = useState<Player[]>([]);
 
   const fetchData = async () => {
-    const playerId = localStorage.getItem("playerId");
     try {
       //自分のapiサーバーにリクエストを送る
-      const res = await axios.get(`http://localhost:3001/players/${playerId}`);
+      const res = await axios.get(`http://localhost:3000/players/read`);
       const data = await res.data;
       console.log(data);
       return data;
@@ -22,7 +21,7 @@ const PlayerStatus = () => {
   };
 
   const getAPI = async () => {
-    const result = await fetchData();
+    const result:Player[] = await fetchData();
     if (result == null) {
       setPlayers(dummy);
     } else {
@@ -33,7 +32,7 @@ const PlayerStatus = () => {
   return (
     <div>
       <h2 style={{ textAlign: "center" }}>PlayerStatus</h2>
-      <button onClick={getAPI}>APIアクセス</button>
+      <button onClick={getAPI}>show PlayerStatus</button>
       <table>
         <thead>
           <tr>
