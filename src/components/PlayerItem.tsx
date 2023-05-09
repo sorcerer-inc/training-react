@@ -63,12 +63,12 @@ const PlayerItems = () => {
           </thead>
           <tbody>
             {/* TODO 取得したデータ表示 */}
-            {playerItems.map((playerItem) => (
+            {playerItems.map((playerItem,index) => (
             <tr>
                 <td>{playerItem.playerId}</td>
                 <td>{playerItem.itemId}</td>
                 <td>{playerItem.count}</td>
-                <td><input type="number" min={1} max={playerItem.count} onChange={(event) => CountChange(event,playerItem.itemId)}></input></td>
+                <td><input type="number" min={1} max={playerItem.count} value={inputs[index]} onChange={(event) => CountChange(event,playerItem.itemId)}></input></td>
                 <td><button onClick={() => itemUse(playerItem.itemId)}>use</button></td>
             </tr>
             ))}
