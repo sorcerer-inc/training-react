@@ -45,6 +45,8 @@ const PlayerItems = () => {
         } catch (e) {
             console.log(e);
             return null;
+        } finally {
+          getAPI();
         }
     }
   
