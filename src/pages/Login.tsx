@@ -21,7 +21,7 @@ const Login = () => {
    */
   const getMyTestServer = async () => {
     try {
-      const res = await axios.get("https://aideatool.ddns.net/api/");
+      const res = await axios.get("http://");
       setResult(res.data.message);
     } catch (e) {
       console.log(e);
