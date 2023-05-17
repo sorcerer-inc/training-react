@@ -3,7 +3,9 @@ import { useState } from "react";
 import { Player } from "../types/player";
 
 const PlayerStatus = () => {
-  const dummy: Player[] = [{ id: 1, name: "player1", hp: 100, mp: 100, money: 100 }];
+  const dummy: Player[] = [
+    { id: 1, name: "player1", hp: 100, mp: 100, money: 100 },
+  ];
   const [players, setPlayers] = useState<Player[]>([]);
 
   const fetchData = async () => {

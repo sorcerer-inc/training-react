@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +12,21 @@ const Login = () => {
       navigate("/");
     }
   }, [navigate]);
+
+  const [result, setResult] = useState<any>(null);
+
+  /**
+   * テストサーバーアクセス
+   * @returns
+   */
+  const getMyTestServer = async () => {
+    try {
+      const res = await axios.get("https://aideatool.ddns.net/api/");
+      setResult(res.data.message);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const login = () => {
     localStorage.setItem("playerId", playerId);
@@ -29,6 +45,8 @@ const Login = () => {
         }}
       />
       <button onClick={login}>Login</button>
+      <button onClick={getMyTestServer}>APIアクセス</button>
+      <p>{result ? result : "データなし"}</p>
     </div>
   );
 };
